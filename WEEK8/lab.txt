@@ -1,0 +1,4 @@
+1-Modify UI1Test to have mutliple selection as per slide-11
+2-Modify UITest and UI1Test to have different number of visible rows
+3-Modify UI3Test so that the drawing starts from the location where the button is clicked
+4-Try out key events as per slide-18

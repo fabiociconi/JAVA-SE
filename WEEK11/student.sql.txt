@@ -1,0 +1,71 @@
+CREATE TABLE student (sid char(5) NOT NULL,  first_name varchar(20) NOT NULL, last_name varchar(20) NOT NULL, PRIMARY KEY (sid));
+
+CREATE TABLE course (code char(10) NOT NULL, PRIMARY KEY (code));
+
+CREATE TABLE student_course (sid char(5) NOT NULL, course_code char(10) NOT NULL,
+		FOREIGN KEY (sid) REFERENCES student(sid),
+		FOREIGN KEY (course_code) REFERENCES course(code));
+
+insert into course values('COMP111');
+insert into course values('COMP222');
+insert into course values('MECH111');
+insert into course values('COMP333');
+insert into course values('ELEC111');
+insert into course values('COMP234');
+insert into course values('BUS111');
+insert into course values('MECH222');
+insert into course values('COMP666');
+
+
+insert into student values('100','John', 'Smith');
+insert into student_course values('100', 'COMP111');
+insert into student_course values('100', 'MECH222');
+insert into student_course values('100', 'COMP333');
+
+
+
+
+
+CREATE TABLE Player 
+(Player_id char(5) NOT NULL,  
+ First_name varchar(20) NOT NULL, 
+ Last_name varchar(20) NOT NULL, 
+ Postal_code varchar(7) not null,
+ PRIMARY KEY (Player_id));
+
+
+CREATE TABLE Game
+(Game_code char(5) NOT NULL,  
+ Game_name varchar(20),
+ PRIMARY KEY (Game_code));
+
+
+drop table Player_Game;
+
+CREATE TABLE Player_Game (Player_id char(5) NOT NULL,
+                           Game_code char(5) NOT NULL,
+		FOREIGN KEY (Player_id) REFERENCES Player(Player_id),
+		FOREIGN KEY (Game_code) REFERENCES Game(Game_code));
+
+insert into Game values('Game1','xx');
+insert into Game values('Game2','cc');
+insert into Game values('Game3','xx');
+
+insert into Player values('001','Fabio', 'Ciconi', 'M2J-2E7');
+insert into Player values('002','Beto', 'Ciconi', 'M2J-2E7');
+insert into Player values('003','Aline', 'Ciconi', 'M2J-2E7');
+insert into Player values('004','Miriam', 'Ciconi', 'M2J-2E7');
+insert into Player values('005','Antonio', 'Ciconi', 'M2J-2E7');
+insert into Player values('006','Whisky', 'Ciconi', 'M2J-2E7');
+insert into Player values('007','Sasha', 'Ciconi', 'M2J-2E7');
+
+
+insert into Player_Game values('001', 'Game1');
+insert into Player_Game values('001', 'Game2');
+
+select * from Player;
+select * from Game;
+select * from Player_Game;
+
+
+

@@ -1,0 +1,53 @@
+
+CREATE TABLE authors (
+	authorID INT NOT NULL,
+	firstName varchar (20) NOT NULL,
+	lastName varchar (30) NOT NULL,
+	PRIMARY KEY (authorID)
+);
+
+CREATE TABLE titles (
+	isbn varchar (20) NOT NULL,
+	title varchar (100) NOT NULL,
+	editionNumber INT NOT NULL,
+	copyright varchar (4) NOT NULL,
+	PRIMARY KEY (isbn)
+);
+
+CREATE TABLE authorISBN(
+	authorID INT NOT NULL,
+	isbn varchar (20) NOT NULL,
+	FOREIGN KEY (authorID) REFERENCES authors (authorID),
+	FOREIGN KEY (isbn) REFERENCES titles (isbn)
+);
+
+INSERT INTO authors VALUES (1, 'Harvey','Deitel');
+INSERT INTO authors VALUES (2, 'Paul','Deitel');
+INSERT INTO authors VALUES (3, 'Andrew','Goldberg');
+INSERT INTO authors VALUES (4, 'David','Choffnes');
+
+INSERT INTO titles (isbn,title,editionNumber,copyright)
+VALUES ('0131869000','Visual Basic 2005 How to Program',3,'2006');
+INSERT INTO titles (isbn,title,editionNumber,copyright) VALUES ('0131525239','Visual C# 2005 How to Program',2,'2006');
+INSERT INTO titles (isbn,title,editionNumber,copyright) VALUES ('0132222205','Java How to Program',7,'2007');
+INSERT INTO titles (isbn,title,editionNumber,copyright) VALUES ('0131857576','C++ How to Program',5,'2005');
+INSERT INTO titles (isbn,title,editionNumber,copyright) VALUES ('0132404168','C How to Program',5,'2007');
+INSERT INTO titles (isbn,title,editionNumber,copyright) VALUES ('0131450913','Internet & World Wide Web How to Program',3,'2004');
+INSERT INTO titles (isbn,title,editionNumber,copyright) VALUES ('0131828274','Operating Systems',3,'2004');
+
+INSERT INTO authorISBN(authorID,isbn) VALUES (1,'0131869000');
+INSERT INTO authorISBN(authorID,isbn) VALUES (2,'0131869000');
+INSERT INTO authorISBN(authorID,isbn) VALUES (1,'0131525239');
+INSERT INTO authorISBN(authorID,isbn) VALUES (2,'0131525239');
+INSERT INTO authorISBN(authorID,isbn) VALUES (1,'0132222205');
+INSERT INTO authorISBN(authorID,isbn) VALUES (2,'0132222205');
+INSERT INTO authorISBN(authorID,isbn) VALUES (1,'0131857576');
+INSERT INTO authorISBN(authorID,isbn) VALUES (2,'0131857576');
+INSERT INTO authorISBN(authorID,isbn) VALUES (1,'0132404168');
+INSERT INTO authorISBN(authorID,isbn) VALUES (2,'0132404168');
+INSERT INTO authorISBN(authorID,isbn) VALUES (1,'0131450913');
+INSERT INTO authorISBN(authorID,isbn) VALUES (2,'0131450913');
+INSERT INTO authorISBN(authorID,isbn) VALUES (3,'0131450913');
+INSERT INTO authorISBN(authorID,isbn) VALUES (1,'0131828274');
+INSERT INTO authorISBN(authorID,isbn) VALUES (2,'0131828274');
+INSERT INTO authorISBN(authorID,isbn) VALUES (4,'0131828274');
